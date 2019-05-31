@@ -1,0 +1,33 @@
+﻿@model HomeBudget.Models.People.PeopleListViewModel
+
+<div class="container">
+    <h1>Bills of all family members</h1>
+    <button class="btn btn-success float-lg-right">Add</button>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th hidden="hidden">Id</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Relation</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.People)
+            {
+                <tr>
+                    <th hidden="hidden">@item.Id</th>
+                    <th scope="row">@(Model.People.IndexOf(item) + 1)</th>
+                    <td>@item.Name</td>
+                    <td>@item.RelationName</td>
+                    <td>@item.TotalAmount</td>
+                    <td><button class="btn btn-info">Edit</button> <button class="btn btn-danger">Remove</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
